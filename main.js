@@ -171,6 +171,23 @@ function contactCreator() {
         return counter2++;
     }
     
+    //
+    //
+    //This portion is for deleting the contact details
+    //
+    //
     
+    var deleteButton = document.createElement("button");
+    deleteButton.setAttribute("id", "delete-" + contactName);
+    var deleteButtonText = document.createTextNode("Delete contact");
+    deleteButton.appendChild(deleteButtonText);
+    detailsUnorderedList.insertAdjacentElement("beforeend", deleteButton);
+    
+    var clickDeleteButton = document.getElementById("delete-" + contactName);
+    clickDeleteButton.onclick = deleteContactDetails;
+    
+    function deleteContactDetails() {
+        var allContactDetails = document.getElementById("contact-" + contactName);
+        allContactDetails.remove();
     }
 }
