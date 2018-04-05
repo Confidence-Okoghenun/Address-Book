@@ -57,8 +57,9 @@ function contactCreator() {
     detailsUnorderedList.setAttribute("id", reverseContactName);
     
     //Add newly created detailsUnorderedList and its content to the
-    //contactNameListItem
+    //contactNameListItem and give it an attribute of hidden
     var contactNameListItem = document.getElementById(contactName);
+    detailsUnorderedList.setAttribute("hidden","");
     contactNameListItem.appendChild(detailsUnorderedList);
     
     //The below helps to hide or reveal contact details
@@ -66,7 +67,7 @@ function contactCreator() {
         var contact = document.getElementById(contactName);
         var details = document.getElementById(reverseContactName);
         contact.onclick = hider;
-        var counter = 1;
+        var counter = 2;
         
         function hider() {
             if (counter%2 === 0) {
