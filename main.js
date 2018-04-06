@@ -2,6 +2,8 @@ var addContactButton = document.getElementById("buttonAdd");
 addContactButton.onclick = contactCreator;
 
 function contactCreator() {
+    
+    
     //Get all the contact detail's values such as first and last names
     //as well as phone number and store them in the blow variables
     var contactName = document.getElementById("Name").value;
@@ -15,6 +17,10 @@ function contactCreator() {
     var nameListItemParagraph = document.createElement("p");
     var nameListItemContent = document.createTextNode(contactName);
     nameListItemParagraph.appendChild(nameListItemContent);
+    
+    var nameListItemImage = document.createElement("img");
+    nameListItemImage.setAttribute("src","img/arrow-down.png");
+    nameListItemParagraph.appendChild(nameListItemImage);
     
     //Sets the attribute of new nameListItemParagraph, bearing contact name to
     //the value of contact name and then the id of nameListItem to
@@ -42,7 +48,7 @@ function contactCreator() {
     //after which add it to the detailsUnorderedList
     var eMailListItem = document.createElement("li");
     eMailListItem.setAttribute("id", eMail);
-    var eMailListItemContent = document.createTextNode(eMail);
+    var eMailListItemContent = document.createTextNode("Email: " + eMail);
     eMailListItem.appendChild(eMailListItemContent);
     detailsUnorderedList.appendChild(eMailListItem);
     
@@ -50,7 +56,7 @@ function contactCreator() {
     //after which add it to the detailsUnorderedList
     var phoneNumberListItem = document.createElement("li");
     phoneNumberListItem.setAttribute("id", phoneNumber);
-    var phoneNumberListItemContent = document.createTextNode(phoneNumber);
+    var phoneNumberListItemContent = document.createTextNode("Tel: " + phoneNumber);
     phoneNumberListItem.appendChild(phoneNumberListItemContent);
     detailsUnorderedList.appendChild(phoneNumberListItem);
     
@@ -62,6 +68,9 @@ function contactCreator() {
     detailsUnorderedList.setAttribute("hidden","");
     nameListItem.appendChild(detailsUnorderedList);
     
+    //Resets all input fields
+    document.getElementById("contactForm").reset();
+    
     //The below helps to hide or reveal contact details
      (function () {
         var contact = document.getElementById(contactName);
@@ -72,8 +81,13 @@ function contactCreator() {
         function hider() {
             if (counter1%2 === 0) {
                 details.removeAttribute("hidden");
+                nameListItemImage.setAttribute("src","img/arrow-up.png");
+                nameListItemParagraph.appendChild(nameListItemImage);
+                
             } else {
                 details.setAttribute("hidden","");
+                nameListItemImage.setAttribute("src","img/arrow-down.png");
+                nameListItemParagraph.appendChild(nameListItemImage);
             }
             return counter1++;
         }
@@ -109,27 +123,59 @@ function contactCreator() {
             
             var editNameTextInput = document.createElement("input");
             editNameTextInput.setAttribute("type","text");
+            editNameTextInput.setAttribute("class","input-field");
             editNameTextInput.setAttribute("placeholder","enter new name");
-            editNameTextInput.setAttribute("id","edit-" + contactName + "text");
+            editNameTextInput.setAttribute("id","edit-" + contactName + "-text");
+            
             
             var editEmailTextInput = document.createElement("input");
             editEmailTextInput.setAttribute("type","text");
+            editEmailTextInput.setAttribute("class","input-field");
             editEmailTextInput.setAttribute("placeholder","enter new email");
-            editEmailTextInput.setAttribute("id","edit-" + eMail + "text");
+            editEmailTextInput.setAttribute("id","edit-" + eMail + "-text");
             
             var editPhoneNumberTextInput = document.createElement("input");
             editPhoneNumberTextInput.setAttribute("type","text");
+            editPhoneNumberTextInput.setAttribute("class","input-field");
             editPhoneNumberTextInput.setAttribute("placeholder","enter new phone number");
-            editPhoneNumberTextInput.setAttribute("id","edit-" + phoneNumber + "text");
+            editPhoneNumberTextInput.setAttribute("id","edit-" + phoneNumber + "-text");
             
             var saveButton = document.createElement("input");
             saveButton.setAttribute("type","submit");
             saveButton.setAttribute("value","Save");
             saveButton.setAttribute("id","save-button-" + contactName);
             
-            editForm.appendChild(editNameTextInput);
-            editForm.appendChild(editEmailTextInput);
-            editForm.appendChild(editPhoneNumberTextInput);
+            
+            
+            var spanForEditName = document.createElement("span");
+            var textSpanForEditName = document.createTextNode("Name");
+            spanForEditName.appendChild(textSpanForEditName);
+            
+            var spanForEditEmail = document.createElement("span");
+            var textSpanForEditEmail = document.createTextNode("Email");
+            spanForEditEmail.appendChild(textSpanForEditEmail);
+            
+            var spanForPhoneNumber = document.createElement("span");
+            var textSpanForPhoneNumber = document.createTextNode("Phone Number");
+            spanForPhoneNumber.appendChild(textSpanForPhoneNumber);
+            
+            
+            
+            var labelForEditName = document.createElement("label");
+            var labelForEditEmail = document.createElement("label");
+            var labelForPhoneNumber = document.createElement("label");
+            
+            labelForEditName.appendChild(spanForEditName);
+            labelForEditEmail.appendChild(spanForEditEmail);
+            labelForPhoneNumber.appendChild(spanForPhoneNumber);
+            
+            labelForEditName.appendChild(editNameTextInput);
+            labelForEditEmail.appendChild(editEmailTextInput);
+            labelForPhoneNumber.appendChild(editPhoneNumberTextInput);
+            
+            editForm.appendChild(labelForEditName);
+            editForm.appendChild(labelForEditEmail);
+            editForm.appendChild(labelForPhoneNumber);
             
             clickEditButton.insertAdjacentElement('afterend', editDiv);
             editDiv.appendChild(editForm);
@@ -141,21 +187,21 @@ function contactCreator() {
             function editAndSave() {
                 
                 
-                var nameToSave = document.getElementById("edit-" + contactName + "text").value;
+                var nameToSave = document.getElementById("edit-" + contactName + "-text").value;
                 if(nameToSave === "") {} else {
                 document.getElementById(contactName).innerHTML = nameToSave;
                 }
                 
                 
-                var eMailToSave = document.getElementById("edit-" + eMail + "text").value;
+                var eMailToSave = document.getElementById("edit-" + eMail + "-text").value;
                 if(eMailToSave === "") {} else {
-                document.getElementById(eMail).innerHTML = eMailToSave;
+                document.getElementById(eMail).innerHTML = "Email: " + eMailToSave;
                 }
                 
                 
-                var phoneNumberToSave = document.getElementById("edit-" + phoneNumber + "text").value;
+                var phoneNumberToSave = document.getElementById("edit-" + phoneNumber + "-text").value;
                 if(phoneNumberToSave === "") {} else {
-                document.getElementById(phoneNumber).innerHTML = phoneNumberToSave;
+                document.getElementById(phoneNumber).innerHTML = "Tel: " + phoneNumberToSave;
                 }
                 
                 

@@ -3,30 +3,40 @@
     <head>
         <meta charset="utf-8">
         <title>Address Book</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <secion id="addContact">
-            <h3>Add Contact</h3>
-            <form>
-                <label for="Name">FName: </label>
-                <input type="text" id="Name" value="" placeholder="enter full name">
+        <div class="form-style">
+            <secion id="addContact">
+                <div class="form-style-heading"><h3>Add Contact</h3></div>
                 
-                <label for="email">Email: </label>
-                <input type="text" id="email" value="" placeholder="enter email address">
-                
-                <label for="phoneNumber">Phone Number: </label>
-                <input type="text" id="phoneNumber" value="" placeholder="enter phone number">
-            </form>
-            <button id="buttonAdd">Add</button>
-        </secion>
-        
-        <section>
-            <h3>Contact List</h3>
-            <ol id="contactList">
-                
-            </ol>
-        </section>
-        
+                <form id="contactForm">
+                    
+                    <label for="Name">
+                        <span>Name</span>
+                        <input type="text" id="Name" class="input-field" value="" placeholder="enter full name">
+                    </label>
+                    
+                    <label for="email"><span>Email</span>
+                        <input type="text" id="email" class="input-field" value="" placeholder="enter email address">
+                    </label>
+                    
+                    <label for="phoneNumber">
+                        <span>Phone Number</span>
+                        <input type="text" id="phoneNumber" class="input-field" value="" placeholder="enter phone number">
+                    </label>
+                    
+                </form>
+                <button id="buttonAdd">Add</button>
+            </secion>
+            
+            <section>
+                <div class="form-style-heading"><h3>Contact List</h3></div>
+                <ol id="contactList">
+                    
+                </ol>
+            </section>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>
