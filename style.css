@@ -2,12 +2,14 @@ body {
     font-family: Georgia, "Times New Roman", Times, serif;
     
 }
-.form-style{
+
+.form-style {
     max-width: 500px;
     padding: 20px 12px 10px 20px;
     font: 13px Arial, Helvetica, sans-serif;
 }
-.form-style-heading{
+
+.form-style-heading {
     font-weight: bold;
     font-style: italic;
     border-bottom: 2px solid #ddd;
@@ -15,10 +17,12 @@ body {
     font-size: 15px;
     padding-bottom: 3px;
 }
-.form-style label{
+
+.form-style label {
     display: block;
-    margin: 0px 0px 15px 0px;
+    margin: 0 0 15px 0;
 }
+
 .form-style label > span{
     width: 100px;
     font-weight: bold;
@@ -27,10 +31,11 @@ body {
     padding-right: 5px;
 }
 
-.form-style input.input-field, .form-style .select-field{
+.form-style input.input-field, .form-style .select-field {
     width: 48%;
 }
-.form-style input.input-field{
+
+.form-style input.input-field {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -44,15 +49,18 @@ body {
     padding: 7px;
     outline: none;
 }
-.form-style .input-field:focus{
+
+.form-style .input-field:focus {
     border: 1px solid #0C0;
 }
-.form-style .textarea-field{
+
+.form-style .textarea-field {
     height:100px;
     width: 55%;
 }
+
 .form-style button,
-.form-style input[type=submit]{
+.form-style input[type=submit] {
     border: none;
     padding: 8px 15px 8px 15px;
     background: #FF8500;
@@ -65,8 +73,9 @@ body {
     -moz-border-radius: 3px;
     margin: 10px 10px 0 0;
 }
+
 .form-style button:hover,
-.form-style input[type=submit]:hover{
+.form-style input[type=submit]:hover {
     background: #EA7B00;
     color: #fff;
 }
@@ -85,11 +94,23 @@ ul {
     padding-right: 5px;
 }
 
+ol > li {
+    clear: both;
+}
+
 img {
     width: 15px;
     margin-left: 6px;
 }
 
-.form-style button {
-    margin-bottom: 20px;
+.form-style button{
+    margin-bottom: 15px;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 15px;
 }
